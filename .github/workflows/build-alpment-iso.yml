@@ -13,18 +13,27 @@ jobs:
       options: --privileged
 
     steps:
-    - name: Bağımlılıkları ve Depoyu Klonla
+    - name: Sistemi Güncelle ve Gerekli Araçları Kur
       run: |
         pacman -Syu --noconfirm
-        pacman -S --noconfirm git archiso
+        pacman -S --noconfirm git archiso grub libisoburn mtools squashfs-tools
 
     - name: Proje Dosyalarını Çek
       uses: actions/checkout@v4
 
-    - name: Alpment OS ISO Derleme İşlemini Başlat
+    - name: Resmi Archiso Profilini Al ve Alpment İçin Hazırla
       run: |
         mkdir -p /tmp/archiso-workspace
-        cp -r archiso /tmp/archiso-workspace/alpment_profile
+        # Arch Linux'un resmi eksiksiz profilini çalışma alanına kopyalıyoruz
+        cp -r /usr/share/archiso/configs/releng /tmp/archiso-workspace/alpment_profile
+        
+        # Eğer senin depoda kendi özelleştirmelerin varsa üstüne yazar, yoksa resmi dosyalar kalır
+        if [ -d "archiso" ]; then
+          cp -r archiso/* /tmp/archiso-workspace/alpment_profile/
+        fi
+
+    - name: Alpment OS ISO Derleme İşlemini Başlat
+      run: |
         cd /tmp/archiso-workspace
         mkarchiso -v -w work_dir -o out_dir alpment_profile
 
