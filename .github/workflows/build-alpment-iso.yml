@@ -13,23 +13,24 @@ jobs:
       options: --privileged
 
     steps:
-    - name: Sistemi Güncelle ve Gerekli Araçları Kur
-      run: |
-        pacman -Syu --noconfirm
-        pacman -S --noconfirm git archiso grub libisoburn mtools squashfs-tools syslinux
-
     - name: Proje Dosyalarını Çek
       uses: actions/checkout@v4
+
+    - name: Sistemi Güncelle, Keyring Başlat ve Gerekli Araçları Kur
+      run: |
+        # pacman keyring initialization (özellikle temiz container ortamları için gerekli)
+        pacman-key --init
+        pacman-key --populate archlinux
+
+        # güncelleme ve paket kurulum
+        pacman -Syyu --noconfirm
+        pacman -S --needed --noconfirm git archiso grub libisoburn mtools squashfs-tools syslinux python-pyqt6
 
     - name: Resmi Archiso Profilini Al ve Enjekte Et
       run: |
         mkdir -p /tmp/archiso-workspace
         cp -r /usr/share/archiso/configs/releng /tmp/archiso-workspace/alpment_profile
-        
-        # --- KRİTİK DÜZELTME ---
-        # Profilin paket listesine syslinux paketini enjekte ediyoruz ki doğrulama hatası vermesin
-        echo "syslinux" >> /tmp/archiso-workspace/alpment_profile/packages.x86_64
-        
+
         if [ -d "archiso" ]; then
           cp -r archiso/* /tmp/archiso-workspace/alpment_profile/
         fi
