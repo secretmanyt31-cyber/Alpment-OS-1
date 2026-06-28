@@ -16,18 +16,20 @@ jobs:
     - name: Sistemi Güncelle ve Gerekli Araçları Kur
       run: |
         pacman -Syu --noconfirm
-        pacman -S --noconfirm git archiso grub libisoburn mtools squashfs-tools
+        pacman -S --noconfirm git archiso grub libisoburn mtools squashfs-tools syslinux
 
     - name: Proje Dosyalarını Çek
       uses: actions/checkout@v4
 
-    - name: Resmi Archiso Profilini Al ve Alpment İçin Hazırla
+    - name: Resmi Archiso Profilini Al ve Enjekte Et
       run: |
         mkdir -p /tmp/archiso-workspace
-        # Arch Linux'un resmi eksiksiz profilini çalışma alanına kopyalıyoruz
         cp -r /usr/share/archiso/configs/releng /tmp/archiso-workspace/alpment_profile
         
-        # Eğer senin depoda kendi özelleştirmelerin varsa üstüne yazar, yoksa resmi dosyalar kalır
+        # --- KRİTİK DÜZELTME ---
+        # Profilin paket listesine syslinux paketini enjekte ediyoruz ki doğrulama hatası vermesin
+        echo "syslinux" >> /tmp/archiso-workspace/alpment_profile/packages.x86_64
+        
         if [ -d "archiso" ]; then
           cp -r archiso/* /tmp/archiso-workspace/alpment_profile/
         fi
