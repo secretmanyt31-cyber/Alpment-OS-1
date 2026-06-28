@@ -1,1 +1,34 @@
-{}
+{
+  "store": {
+    "name": "Alpment OS Store",
+    "version": "1.0.0",
+    "backend": "flatpak",
+    "default_layout": "grid"
+  },
+  "updates": {
+    "auto_check": true,
+    "check_interval_days": 1,
+    "download_in_background": false,
+    "unattended_upgrades": false
+  },
+  "categories": {
+    "featured": [
+      "org.gimp.GIMP",
+      "com.valvesoftware.Steam",
+      "com.discordapp.Discord",
+      "org.mozilla.firefox",
+      "com.visualstudio.code"
+    ],
+    "priority": [
+      "Games",
+      "Development",
+      "Graphics",
+      "Utilities",
+      "System"
+    ]
+  },
+  "cache": {
+    "enable_metadata_cache": true,
+    "cache_expiry_hours": 24
+  }
+}
