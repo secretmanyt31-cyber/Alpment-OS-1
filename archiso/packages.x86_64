@@ -1,1 +1,57 @@
-# Alpment OS 1 packages list
+# ==========================================
+# Alpment OS 1 - Ana Paket Listesi
+# Arch Linux & Windows 12 Fan Edition Tabanı
+# ==========================================
+
+# --- Temel Sistem ve Sürücüler (Hız ve Donanım Uyumluluğu İçin)
+base
+linux
+linux-firmware
+grub
+efibootmgr
+networkmanager
+pipewire
+pipewire-alsa
+pipewire-pulse
+pipewire-jack
+wireplumber
+
+# --- Grafik Sunucusu ve Ekran Kartı Sürücüleri
+xorg-server
+xf86-video-intel
+xf86-video-amdgpu
+mesa
+
+# --- Masaüstü Ortamı (Windows 12 Arayüzü İçin En Esnek Olan KDE Plasma)
+plasma-desktop
+plasma-nm
+powerdevil
+kscreen
+sddm
+
+# --- Görsel Özelleştirme ve Şık Temalar İçin Gerekli Araçlar
+kvantum
+xdg-desktop-portal-kde
+xdg-user-dirs
+
+# --- İstediğin Flatpak Mağazası ve Uygulama Altyapısı
+flatpak
+discover              # KDE'nin Flatpak destekli şık mağaza arayüzü
+xdg-desktop-portal
+
+# --- Alpment OOBE (Şık İlk Kurulum Ekranı Altyapısı)
+calamares             # Linux dünyasının en şık ve gelişmiş dil/klavye seçmeli kurulum arayüzü
+qt5-svg
+qt5-xmlpatterns
+
+# --- Hazır Gelecek Klasik Uygulamalar (İstediğin Paketler)
+dolphin               # Gelişmiş Dosya Yöneticisi
+konsole               # Gelişmiş Yeni Nesil Terminal
+kamoso                # Kamera Uygulaması
+systemsettings        # Gelişmiş Ayarlar Menüsü
+
+# --- Sistem Araçları ve İnternet
+git
+wget
+nano
+firefox               # Varsayılan İnternet Tarayıcısı
