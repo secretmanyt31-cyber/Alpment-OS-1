@@ -44,6 +44,9 @@ calamares             # Linux dünyasının en şık ve gelişmiş dil/klavye se
 qt5-svg
 qt5-xmlpatterns
 
+# --- PyQt / OOBE uyumluluğu (oobe-ui.py PyQt6 kullanıyorsa bunu ekleyin)
+python-pyqt6
+
 # --- Hazır Gelecek Klasik Uygulamalar (İstediğin Paketler)
 dolphin               # Gelişmiş Dosya Yöneticisi
 konsole               # Gelişmiş Yeni Nesil Terminal
@@ -55,3 +58,6 @@ git
 wget
 nano
 firefox               # Varsayılan İnternet Tarayıcısı
+
+# --- Boot tooling
+syslinux
