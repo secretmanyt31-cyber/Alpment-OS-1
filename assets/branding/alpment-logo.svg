@@ -1,1 +1,37 @@
-<!-- Alpment OS 1 Logo -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00c6ff" />
+      <stop offset="100%" stop-color="#0072ff" />
+    </linearGradient>
+    
+    <linearGradient id="cyanGrad" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#4facfe" />
+    </linearGradient>
+
+    <linearGradient id="glassGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0"/>
+    </linearGradient>
+
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="25" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <g filter="url(#glow)">
+    <path d="M 400,150 L 580,500 L 480,650 L 400,530 Z" fill="url(#blueGrad)" opacity="0.9" />
+    
+    <path d="M 400,150 L 220,500 L 320,650 L 400,530 Z" fill="url(#cyanGrad)" opacity="0.85" />
+    
+    <path d="M 400,220 L 490,490 L 400,600 L 310,490 Z" fill="url(#glassGlow)" />
+    
+    <circle cx="400" cy="450" r="35" fill="#ffffff" opacity="0.9" />
+  </g>
+
+  <text x="400" y="740" font-family="'Segoe UI', 'Arial', sans-serif" font-size="42" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="4">
+    ALPMENT OS 1
+  </text>
+</svg>
