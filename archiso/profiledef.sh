@@ -20,6 +20,7 @@ pacman_conf="pacman.conf"
 # =====================================================================
 # Dosya ve Klasör İzinleri (Hatasız Sistem Çalışması İçin Güvenlik Ayarları)
 # =====================================================================
+declare -A file_permissions
 file_permissions=(
   ["/etc/shadow"]="0:0:400"
   ["/etc/gshadow"]="0:0:400"
